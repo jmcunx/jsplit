@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,8 +26,6 @@
 #include <j_lib2m.h>
 
 #include "jsplit.h"
-
-char *jsplit_t_c="$Id: jsplit_t.c,v 2.6 2021/02/21 20:53:25 jmccue Exp $";
 
 /*
  * splittxt() -- Text File Split
@@ -90,6 +90,4 @@ void splittxt(struct s_work *w, char *ifile)
   close_in(&(in.fp), ifile);
   close_out(&out);
   
-} /* end: splittxt() */
-
-/* END: jsplit_t.c */
+} /* splittxt() */

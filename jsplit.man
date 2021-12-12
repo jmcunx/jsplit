@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2012 ... 2020 2021
+.\" Copyright (c) 2012 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -14,7 +14,7 @@
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\" 
-.TH jsplit 1 "$Date: 2020/11/17 21:15:43 $" "JMC" "Local Command"
+.TH jsplit 1 "2020/11/17" "JMC" "Local Command"
 .SH NAME
 jsplit - Execute to splits binary or text files into small files
 .SH SYNOPSIS
@@ -55,7 +55,7 @@ Optional, number of bytes or lines to use when splitting
 the input file, must be greater than 0.
 Default is 1000 bytes or lines per
 output.
-This value can be randomized using Argument '-r'.
+This value can be randomised using Argument '-r'.
 .TP
 -r
 Optional, instead if using a fixed Maximum Value (-M)
@@ -75,7 +75,7 @@ output version information and exit.
 .SH DIAGNOSTICS
 If available you should use split(1), it is much faster.
 .PP
-If you decide to Randomize the Maximum File size '-r',
+If you decide to Randomise the Maximum File size '-r',
 Arguments '-L' and '-M' are used to determine the Random
 Value Range.
 .PP

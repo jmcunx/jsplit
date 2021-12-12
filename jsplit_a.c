@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -28,8 +30,6 @@
 #include "jsplit.h"
 
 #define MAXARG 80
-
-char *jsplit_a_c="$Id: jsplit_a.c,v 2.6 2021/02/21 20:53:25 jmccue Exp $";
 
 /*
  * check_args() -- mane sure all required args supplied
@@ -185,6 +185,4 @@ void process_arg(int argc, char **argv, struct s_work *w)
       exit(ok);
     }
 
-} /* END process_arg() */
-
-/* END: jsplit_a.c */
+} /* process_arg() */

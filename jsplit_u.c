@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2016 2017 2018 
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,8 +27,6 @@
 #include <j_lib2m.h>
 
 #include "jsplit.h"
-
-char *jsplit_u_c="$Id: jsplit_u.c,v 2.6 2021/02/21 20:53:25 jmccue Exp $";
 
 /*
  * split_log() -- Show data
@@ -206,5 +206,3 @@ void init_finfo(struct s_file_info *f)
   f->io    = (jm_counter) 0;
 
 } /* init_finfo() */
-
-/* END: jsplit_u.c */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -24,16 +26,6 @@
 #include <j_lib2m.h>
 
 #include "jsplit.h"
-
-char *jsplit_h_c="$Id: jsplit_h.c,v 2.6 2021/02/21 20:53:25 jmccue Exp $";
-
-extern char *jsplit_c;
-extern char *jsplit_a_c;
-extern char *jsplit_b_c;
-extern char *jsplit_h_c;
-extern char *jsplit_i_c;
-extern char *jsplit_t_c;
-extern char *jsplit_u_c;
 
 #define MSG_HELP_11  "Split Large Files"
 
@@ -70,22 +62,9 @@ int show_rev(FILE *fp, char *pname)
 {
 
   fprintf(fp,"%s %s:\n", pname, LIT_REV);
-  fprintf(fp,"\t%s\n", JSPLIT_H);
-  fprintf(fp,"\t%s\n", jsplit_c);
-  fprintf(fp,"\t%s\n", jsplit_a_c);
-  fprintf(fp,"\t%s\n", jsplit_b_c);
-  fprintf(fp,"\t%s\n", jsplit_h_c);
-  fprintf(fp,"\t%s\n", jsplit_i_c);
-  fprintf(fp,"\t%s\n", jsplit_t_c);
-  fprintf(fp,"\t%s\n", jsplit_u_c);
 
 #ifdef J_LIB2_H
-  fprintf(fp, "\t%s\n", J_LIB2_H);
-  fprintf(fp, "\t     %s %s\n", LIT_INFO_02, j2_get_build());
-#endif
-
-#ifdef J_LIB2M_H
-  fprintf(fp, "\t%s\n", J_LIB2M_H);
+  fprintf(fp, "\t%s %s\n", LIT_INFO_02, j2_get_build());
 #endif
 
 #ifdef OSTYPE
@@ -99,5 +78,3 @@ int show_rev(FILE *fp, char *pname)
   return(EXIT_FAILURE);
 
 }  /* show_rev() */
-
-/* END: jsplit_h.c */

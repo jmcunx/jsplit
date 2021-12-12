@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -17,7 +17,7 @@
 
 #ifndef JSPLIT_H
 
-#define JSPLIT_H "$Id: jsplit.h,v 2.5 2020/11/17 21:15:43 jmccue Exp $"
+#define JSPLIT_H "INCLUDED"
 
 #define PROG_NAME  "jsplit"
 
@@ -67,5 +67,3 @@ void splittxt(struct s_work *, char *);
 void split_log(int, struct s_work *, struct s_file_info *, char *, char *, char *, char *);
 
 #endif /*  JSPLIT_H  */
-
-/******************************* END: jsplit.h ********************************/

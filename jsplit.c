@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -30,8 +32,6 @@
 #include <j_lib2.h>
 #include <j_lib2m.h>
 #include "jsplit.h"
-
-char *jsplit_c="$Id: jsplit.c,v 2.6 2021/02/21 20:53:25 jmccue Exp $";
 
 /*
  * process_all() -- Process all files
@@ -73,5 +73,3 @@ int main(int argc, char **argv)
   exit(EXIT_SUCCESS);
 
 }  /* main() */
-
-/* END: jsplit.c */

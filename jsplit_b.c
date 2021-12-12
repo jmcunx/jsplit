@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 ... 2020 2021
+ * Copyright (c) 2012 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,7 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,10 +27,13 @@
 
 #include "jsplit.h"
 
+#ifdef _MSDOS
+#define SB_WRITE_OMODE "wb"
+#define SB_READ_OMODE  "rb"
+#else
 #define SB_WRITE_OMODE "w"
 #define SB_READ_OMODE  "r"
-
-char *jsplit_b_c="$Id: jsplit_b.c,v 2.5 2021/02/21 20:53:25 jmccue Exp $";
+#endif
 
 /*
  * splitbin() -- binary File Split
@@ -92,5 +97,3 @@ void splitbin(struct s_work *w, char *ifile)
   close_out(&out);
   
 } /* splitbin() */
-
-/* END: j_splitb.c */
