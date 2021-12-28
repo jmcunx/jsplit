@@ -53,7 +53,7 @@ void splittxt(struct s_work *w, char *ifile)
   split_oout(w, &out, ofname, "w", &fname_counter);
 
   /*** process text split ***/
-  while (getline(&buf, &bsiz, in.fp) > (ssize_t) -1)
+  while (j2_getline(&buf, &bsiz, in.fp) > (ssize_t) -1)
     {
       in.io++;
       if ((out.io >= w->max_items) && (fname_counter < w->limit ))
