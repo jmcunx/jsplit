@@ -1,6 +1,6 @@
 # for jsplit
 #
-# Copyright (c) 2022 2023
+# Copyright (c) 2022 2023 2024
 #     John McCue <jmccue@jmcunx.com>
 #
 # Permission to use, copy, modify, and distribute this software for any
@@ -68,7 +68,9 @@ CTAGS=ctags
 ECHO=echo
 GZIP=gzip
 LINK=cc
-LIBS=-lj_lib2
+#FOUND_JLIB#LIBS=-lj_lib2
+#NO_JLIB#LIBS=
+#FOUND_JLIB#HJLIB=-DHAVE_JLIB
 MV=mv
 RM=rm -f
 STRIP=strip
@@ -76,11 +78,25 @@ MKDIR=mkdir
 
 EXE=
 OBJ=.o
-CFLAGS=-c $(WALL) -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
-LFLAGS=$(WALL) -LJLIBLOC -o jsplit $(LIBS)
 
-ALL_OBJ=jsplit$(OBJ) jsplit_b$(OBJ) jsplit_i$(OBJ) jsplit_u$(OBJ) jsplit_a$(OBJ) jsplit_h$(OBJ) jsplit_t$(OBJ)
-ALL_C=jsplit.c jsplit_b.c jsplit_i.c jsplit_u.c jsplit_a.c jsplit_h.c jsplit_t.c
+#--- for prod
+#FOUND_JLIB#CFLAGS=-O1 -c $(WALL) $(HJLIB) -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
+#FOUND_JLIB#LFLAGS=-O1 $(WALL) -LJLIBLOC -o jsplit $(LIBS)
+#NO_JLIB#CFLAGS=-O1 -c $(WALL) -DOSTYPE="\"$(OSDESC)\""
+#NO_JLIB#LFLAGS=-O1 $(WALL) -o jsplit $(LIBS)
+
+#--- for valgrind
+#VALGRIND##FOUND_JLIB#CFLAGS=-O0 -g -c $(WALL) $(HJLIB) -IINCJLIB -DOSTYPE="\"$(OSDESC)\""
+#VALGRIND##FOUND_JLIB#LFLAGS=-O0 -g $(WALL) -LJLIBLOC -o jsplit $(LIBS)
+#VALGRIND##NO_JLIB#CFLAGS=-O0 -g -c $(WALL) -DOSTYPE="\"$(OSDESC)\""
+#VALGRIND##NO_JLIB#LFLAGS=-O0 -g -$(WALL) -o jsplit $(LIBS)
+
+#--- continue on
+#NO_JLIB#JCC=jsplit_j.c
+#NO_JLIB#JCOB=jsplit_j$(OBJ)
+
+ALL_OBJ=jsplit$(OBJ) jsplit_a$(OBJ) jsplit_b$(OBJ) jsplit_h$(OBJ) jsplit_i$(OBJ) $(JCOB) jsplit_u$(OBJ) jsplit_t$(OBJ)
+ALL_C=jsplit.c jsplit_a.c jsplit_b.c jsplit_h.c jsplit_i.c $(JCC)  jsplit_t.c jsplit_u.c
 ALL_H=jsplit.h
 
 #
